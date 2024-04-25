@@ -22,11 +22,12 @@ mesh = SubResource("BoxMesh_dmfo5")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dashboard/Board"]
 shape = SubResource("BoxShape3D_6ucog")
 
-[node name="Knob1" type="StaticBody3D" parent="dashboard"]
-transform = Transform3D(-2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0, 0.5, 0.147, 0.011, -0.602509)
+[node name="Radio Button" type="StaticBody3D" parent="dashboard"]
+transform = Transform3D(-2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0, 0.5, 0.147, 0.0109999, -0.602509)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="dashboard/Knob1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="dashboard/Radio Button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_twpx2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="dashboard/Knob1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dashboard/Radio Button"]
 shape = SubResource("CapsuleShape3D_oinuh")
