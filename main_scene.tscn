@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv4l03gwue8l5"]
+[gd_scene load_steps=5 format=3 uid="uid://dv4l03gwue8l5"]
 
 [ext_resource type="PackedScene" uid="uid://b86fjylb4pvag" path="res://character.tscn" id="1_grkud"]
+[ext_resource type="Script" path="res://main_scene.gd" id="1_xnqv4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e677u"]
 size = Vector3(2.245, 0.088, 2.245)
@@ -9,6 +10,7 @@ size = Vector3(2.245, 0.088, 2.245)
 size = Vector3(2.235, 0.08, 2.23)
 
 [node name="MainScene" type="Node3D"]
+script = ExtResource("1_xnqv4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -29,3 +31,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.330146, 0.532868, 4.41716)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.497216, 0.867627, 0, -0.867627, 0.497216, 0, 4.71896, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
