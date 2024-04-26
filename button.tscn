@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy41mamkp63sd"]
+
+[ext_resource type="Script" path="res://interactable.gd" id="1_xnq4n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gau8n"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_fp4oc"]
+material = SubResource("StandardMaterial3D_gau8n")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4hlbq"]
+
+[node name="Button" type="StaticBody3D"]
+script = ExtResource("1_xnq4n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_fp4oc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4hlbq")

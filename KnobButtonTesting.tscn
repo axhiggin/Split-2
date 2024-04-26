@@ -1,32 +1,40 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2tg7fjuj8l8p"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_dmfo5"]
+[ext_resource type="Script" path="res://Camera3D.gd" id="1_kyqie"]
+[ext_resource type="Script" path="res://InteractRay.gd" id="2_gwu8f"]
+[ext_resource type="PackedScene" uid="uid://dy41mamkp63sd" path="res://button.tscn" id="3_30bjv"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6ucog"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_twpx2"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oinuh"]
+[sub_resource type="SphereMesh" id="SphereMesh_yycqj"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="dashboard" type="Node3D" parent="."]
 transform = Transform3D(0.809468, 0.587164, 0, -0.587164, 0.809468, 0, 0, 0, 1, 0, 0.886339, 0)
 
-[node name="Board" type="StaticBody3D" parent="dashboard"]
-transform = Transform3D(0.342666, 0, 0, 0, 1, 0, 0, 0, 2.00094, 0, 0, 0)
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(0.00980858, 0, -0.999952, 0, 1, 0, 0.999952, 0, 0.00980858, -1.08475, 1.608, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="dashboard/Board"]
-mesh = SubResource("BoxMesh_dmfo5")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head"]
+mesh = SubResource("SphereMesh_yycqj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="dashboard/Board"]
-shape = SubResource("BoxShape3D_6ucog")
+[node name="Camera3D" type="Camera3D" parent="Head"]
+script = ExtResource("1_kyqie")
 
-[node name="Radio Button" type="StaticBody3D" parent="dashboard"]
-transform = Transform3D(-2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0, 0.5, 0.147, 0.0109999, -0.602509)
+[node name="InteractRay" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -4)
+script = ExtResource("2_gwu8f")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="dashboard/Radio Button"]
-mesh = SubResource("CapsuleMesh_twpx2")
+[node name="Prompt" type="Label" parent="Head/Camera3D/InteractRay"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "[Interact with button]"
+horizontal_alignment = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="dashboard/Radio Button"]
-shape = SubResource("CapsuleShape3D_oinuh")
+[node name="Button" parent="." instance=ExtResource("3_30bjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.886339, -0.445263)
