@@ -16,4 +16,5 @@ func _process(delta):
 func _on_timer_timeout():
 	#pick out a new wantedMusic from music Array
 	wantedMusic = musicArray[randi() % 6]
+	print(wantedMusic)
 	pass
