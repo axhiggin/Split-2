@@ -14,3 +14,9 @@ config/name="Split 2"
 run/main_scene="res://main_scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="res://main_scene.tscn"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
