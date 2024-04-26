@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmla4vmn6d8vn"]
+
+[ext_resource type="PackedScene" uid="uid://bnw8um8ahf1qj" path="res://road.glb" id="1_y35kj"]
+[ext_resource type="Script" path="res://road.gd" id="2_o14qd"]
+
+[node name="road" instance=ExtResource("1_y35kj")]
+script = ExtResource("2_o14qd")
