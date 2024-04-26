@@ -8,26 +8,27 @@ size = Vector3(2.245, 0.088, 2.245)
 
 [sub_resource type="BoxMesh" id="BoxMesh_loads"]
 size = Vector3(2.235, 0.08, 2.23)
+[ext_resource type="Script" path="res://Camera3D.gd" id="1_tf43l"]
+[ext_resource type="PackedScene" uid="uid://cmom1x2eospqg" path="res://car.glb" id="2_asa0f"]
+[ext_resource type="PackedScene" uid="uid://bnw8um8ahf1qj" path="res://road.glb" id="2_rg4it"]
+[ext_resource type="Script" path="res://car.gd" id="3_emn08"]
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_xnqv4")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.497216, 0.867627, 0, -0.867627, 0.497216, 0, 4.71896, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.330146, -0.270971, -0.261389)
-shape = SubResource("BoxShape3D_e677u")
+[node name="car" parent="." instance=ExtResource("2_asa0f")]
+transform = Transform3D(2.22701, 0, 0, 0, 2.22701, 0, 0, 0, 2.22701, -17.6663, 1.87287, 2.68767)
+script = ExtResource("3_emn08")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.330146, -0.270971, -0.261389)
-mesh = SubResource("BoxMesh_loads")
-skeleton = NodePath("../CollisionShape3D")
+[node name="Camera3D" type="Camera3D" parent="car"]
+transform = Transform3D(-0.423691, 0, -0.148715, 0, 0.449033, 0, 0.148715, 0, -0.423691, -1.85563, 1.49069, 2.2397)
+script = ExtResource("1_tf43l")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_grkud")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.872522, 0)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.330146, 0.532868, 4.41716)
+[node name="road" parent="." instance=ExtResource("2_rg4it")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32647, -2.75241, 3.07487)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.497216, 0.867627, 0, -0.867627, 0.497216, 0, 4.71896, 0)
@@ -36,3 +37,8 @@ transform = Transform3D(1, 0, 0, 0, 0.497216, 0.867627, 0, -0.867627, 0.497216, 
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.27703, 0.960861, 0, -0.960861, -0.27703, -17.8729, 7.3531, 9.60478)
+light_energy = 30.0
+spot_range = 9.63145
+spot_angle = 75.3801
