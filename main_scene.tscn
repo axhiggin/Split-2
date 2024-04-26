@@ -1,11 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://dv4l03gwue8l5"]
 
+[ext_resource type="PackedScene" uid="uid://b86fjylb4pvag" path="res://character.tscn" id="1_grkud"]
+[ext_resource type="Script" path="res://main_scene.gd" id="1_xnqv4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e677u"]
+size = Vector3(2.245, 0.088, 2.245)
+
+[sub_resource type="BoxMesh" id="BoxMesh_loads"]
+size = Vector3(2.235, 0.08, 2.23)
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_tf43l"]
 [ext_resource type="PackedScene" uid="uid://cmom1x2eospqg" path="res://car.glb" id="2_asa0f"]
 [ext_resource type="PackedScene" uid="uid://bnw8um8ahf1qj" path="res://road.glb" id="2_rg4it"]
 [ext_resource type="Script" path="res://car.gd" id="3_emn08"]
 
 [node name="MainScene" type="Node3D"]
+script = ExtResource("1_xnqv4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.497216, 0.867627, 0, -0.867627, 0.497216, 0, 4.71896, 0)
@@ -21,6 +30,13 @@ script = ExtResource("1_tf43l")
 [node name="road" parent="." instance=ExtResource("2_rg4it")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32647, -2.75241, 3.07487)
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.497216, 0.867627, 0, -0.867627, 0.497216, 0, 4.71896, 0)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.27703, 0.960861, 0, -0.960861, -0.27703, -17.8729, 7.3531, 9.60478)
 light_energy = 30.0
