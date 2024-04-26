@@ -9,4 +9,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#moves the car
-	self.position += Vector3(0, 0, 0.3)
+	self.position += Vector3(0, 0, 1)

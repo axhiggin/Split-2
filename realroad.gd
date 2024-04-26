@@ -9,6 +9,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# + self.get_node("Plane").get_aabb().size.z
-	if car.position.z > self.position.z:
-		self.position.z = self.position.z + 250
+		if car.position.z > self.position.z + 700:
+			self.position.z = self.position.z + 1400

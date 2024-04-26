@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv4l03gwue8l5"]
+[gd_scene load_steps=6 format=3 uid="uid://dv4l03gwue8l5"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_tf43l"]
 [ext_resource type="PackedScene" uid="uid://cmom1x2eospqg" path="res://car.glb" id="2_asa0f"]
-[ext_resource type="PackedScene" uid="uid://bnw8um8ahf1qj" path="res://road.glb" id="2_rg4it"]
 [ext_resource type="Script" path="res://car.gd" id="3_emn08"]
+[ext_resource type="PackedScene" uid="uid://bmla4vmn6d8vn" path="res://realroad.tscn" id="4_7nbym"]
+[ext_resource type="Script" path="res://realroad.gd" id="5_pbmg3"]
 
 [node name="MainScene" type="Node3D"]
 
@@ -18,11 +19,20 @@ script = ExtResource("3_emn08")
 transform = Transform3D(-0.423691, 0, -0.148715, 0, 0.449033, 0, 0.148715, 0, -0.423691, -1.85563, 1.49069, 2.2397)
 script = ExtResource("1_tf43l")
 
-[node name="road" parent="." instance=ExtResource("2_rg4it")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32647, -2.75241, 220.275)
-
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.27703, 0.960861, 0, -0.960861, -0.27703, -17.8729, 7.3531, 9.60478)
 light_energy = 30.0
 spot_range = 9.63145
 spot_angle = 75.3801
+
+[node name="road" parent="." instance=ExtResource("4_7nbym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -2.5, 231.973)
+script = ExtResource("5_pbmg3")
+
+[node name="road2" parent="." instance=ExtResource("4_7nbym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -2.5, 748.788)
+script = ExtResource("5_pbmg3")
+
+[node name="road3" parent="." instance=ExtResource("4_7nbym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -2.5, 1266.2)
+script = ExtResource("5_pbmg3")
