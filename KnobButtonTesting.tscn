@@ -37,4 +37,4 @@ text = "[Interact with button]"
 horizontal_alignment = 1
 
 [node name="Button" parent="." instance=ExtResource("3_30bjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.886339, -0.445263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.913384, 0.886339, 0.398691)
