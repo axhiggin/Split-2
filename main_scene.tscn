@@ -1,20 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv4l03gwue8l5"]
+[gd_scene load_steps=5 format=3 uid="uid://dv4l03gwue8l5"]
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_tf43l"]
 [ext_resource type="PackedScene" uid="uid://cmom1x2eospqg" path="res://car.glb" id="2_asa0f"]
 [ext_resource type="PackedScene" uid="uid://bnw8um8ahf1qj" path="res://road.glb" id="2_rg4it"]
+[ext_resource type="Script" path="res://car.gd" id="3_emn08"]
 
 [node name="MainScene" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.943564, 0, -0.33119, 0, 1, 0, 0.33119, 0, -0.943564, -21.7988, 5.19265, 7.6755)
-script = ExtResource("1_tf43l")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.497216, 0.867627, 0, -0.867627, 0.497216, 0, 4.71896, 0)
 
 [node name="car" parent="." instance=ExtResource("2_asa0f")]
 transform = Transform3D(2.22701, 0, 0, 0, 2.22701, 0, 0, 0, 2.22701, -17.6663, 1.87287, 2.68767)
+script = ExtResource("3_emn08")
+
+[node name="Camera3D" type="Camera3D" parent="car"]
+transform = Transform3D(-0.423691, 0, -0.148715, 0, 0.449033, 0, 0.148715, 0, -0.423691, -1.85563, 1.49069, 2.2397)
+script = ExtResource("1_tf43l")
 
 [node name="road" parent="." instance=ExtResource("2_rg4it")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32647, -2.75241, 3.07487)

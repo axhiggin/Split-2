@@ -29,6 +29,7 @@ func rotate_camera():
 	
 	# Clamp rotation to avoid flipping the camera
 	rotation.x = clamp(rotation.x, -89, 89)
+	rotation.y = clamp(rotation.y, 90, 270)
 	
 	# Set the new rotation of the camera
 	set_rotation_degrees(rotation)
