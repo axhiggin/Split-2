@@ -53,8 +53,11 @@ grow_vertical = 2
 texture = ExtResource("5_g6rh6")
 expand_mode = 1
 
-[node name="Button" parent="car" instance=ExtResource("6_xvvw2")]
-transform = Transform3D(0.449033, 0, 0, 0, 0.449033, 0, 0, 0, 0.449033, -0.0319095, 0.40164, 5.08947)
+[node name="Volume Up" parent="car" instance=ExtResource("6_xvvw2")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.537091, 0.713044, 5.08947)
+
+[node name="Volume Down" parent="car" instance=ExtResource("6_xvvw2")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.537091, 0.375075, 5.08947)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.27703, 0.960861, 0, -0.960861, -0.27703, -17.8729, 7.3531, 9.60478)
