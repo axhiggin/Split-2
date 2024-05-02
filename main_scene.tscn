@@ -61,6 +61,14 @@ prompt_message = "Volume up"
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.537091, 0.375075, 5.08947)
 prompt_message = "Volume down"
 
+[node name="Change Radio Up" parent="car" instance=ExtResource("6_xvvw2")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.3242, 0.713044, 5.08947)
+prompt_message = "Volume up"
+
+[node name="Change Radio Down" parent="car" instance=ExtResource("6_xvvw2")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.3242, 0.713044, 5.08947)
+prompt_message = "Volume up"
+
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.27703, 0.960861, 0, -0.960861, -0.27703, -17.8729, 7.3531, 9.60478)
 light_energy = 30.0
@@ -81,3 +89,7 @@ script = ExtResource("5_pbmg3")
 
 [connection signal="interacted" from="car/Volume Up" to="car" method="_on_volume_up_interacted"]
 [connection signal="interacted" from="car/Volume Down" to="car" method="_on_volume_down_interacted"]
+[connection signal="interacted" from="car/Change Radio Up" to="car" method="_on_change_radio_up_interacted"]
+[connection signal="interacted" from="car/Change Radio Up" to="car" method="_on_volume_up_interacted"]
+[connection signal="interacted" from="car/Change Radio Down" to="car" method="_on_volume_up_interacted"]
+[connection signal="interacted" from="car/Change Radio Down" to="car" method="_on_change_radio_down_interacted"]
