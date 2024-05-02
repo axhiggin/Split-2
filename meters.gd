@@ -3,6 +3,7 @@ extends ProgressBar
 # Called when the node enters the scene tree for the first time.
 var musicArray = ["Vocaloid", "Country", "Pop", "Rock", "Kpop", "Jpop"]
 var wantedMusic = "Country"
+var currMusic = "Vocaloid"
 
 var enjoyment = 0 : set = _set_enjoyment
 
@@ -27,6 +28,13 @@ func _on_timer_timeout():
 	#pick out a new wantedMusic from music Array Needs to be attached
 	wantedMusic = musicArray[randi() % 6]
 	print(wantedMusic)
+	pass
+	
+func _process(delta):
+	if currMusic == wantedMusic:
+		enjoyment += 1
+	else:
+		enjoyment -= 1
 	pass
 	
 
