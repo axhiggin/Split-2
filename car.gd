@@ -13,7 +13,7 @@ func _process(delta):
 	#moves the car
 	self.position += Vector3(0, 0, 1)
 
-
+#These get called from the buttons node signals
 func _on_volume_up_interacted(body):
 	volumeLevel += 10
 	if volumeLevel > 100:
@@ -27,7 +27,7 @@ func _on_volume_down_interacted(body):
 		volumeLevel = 0
 	print("Volume: " + str(volumeLevel))
 
-
+#Not sure how we plan on implantmenting the radio but here's a simple system to change the radio
 func _on_change_radio_up_interacted(body):
 	radioStation += 1
 	if radioStation > 10:
