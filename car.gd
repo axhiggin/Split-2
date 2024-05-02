@@ -36,7 +36,7 @@ func _on_change_radio_up_interacted(body):
 
 
 func _on_change_radio_down_interacted(body):
-	radioStation += 1
+	radioStation -= 1
 	if radioStation < 0:
 		radioStation = 10
 	print("Radio station: " + str(radioStation))
