@@ -2,9 +2,11 @@ extends Camera3D
 
 # Speed of camera rotation
 var rotation_speed = 0.1
+var loseFlag = true;
 
 # Variables to store mouse movement
 var mouse_delta = Vector2()
+
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -13,11 +15,12 @@ func _input(event):
 			mouse_delta = event.relative
 
 func _process(delta):
-	# Rotate the camera only if there is mouse movement
-	if mouse_delta.length_squared() > 0:
-		rotate_camera()
-		# Reset mouse_delta after rotation
-		mouse_delta = Vector2()
+	if loseFlag:
+		# Rotate the camera only if there is mouse movement
+		if mouse_delta.length_squared() > 0:
+			rotate_camera()
+			# Reset mouse_delta after rotation
+			mouse_delta = Vector2()
 
 func rotate_camera():
 	# Get the current rotation of the camera
@@ -33,3 +36,9 @@ func rotate_camera():
 	
 	# Set the new rotation of the camera
 	set_rotation_degrees(rotation)
+
+
+
+
+func _on_main_scene_you_lose():
+	loseFlag = false;

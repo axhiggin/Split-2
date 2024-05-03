@@ -4,22 +4,21 @@ extends Control
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	
-# https://forum.godotengine.org/t/how-to-detect-label-click/14680
-func _on_play_gui_input(event):
+
+func _on_try_again_gui_input(event):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == 1):
-		print("Play clicked")
+		print("Try Again clicked")
 		get_tree().change_scene_to_file("res://main_scene.tscn")
 
-func _on_settings_gui_input(event):
+func _on_menu_gui_input(event):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == 1):
-		print("Settings clicked")
+		print("Menu clicked")
+		get_tree().change_scene_to_file("res://MainMenu.tscn")
 
 func _on_quit_gui_input(event):
-	
-	if (event is InputEventMouseButton and event.pressed and event.button_index == 1):
-		print("Quit clicked")
-		get_tree().quit()
+	print("Quit Clicked")
+	get_tree().quit()

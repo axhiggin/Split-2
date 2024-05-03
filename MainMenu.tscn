@@ -1,20 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://crjxuy07lh2he"]
+[gd_scene load_steps=5 format=3 uid="uid://crjxuy07lh2he"]
 
-[ext_resource type="Script" path="res://Play.gd" id="1_hbko0"]
-[ext_resource type="Script" path="res://Settings.gd" id="2_ridt3"]
-[ext_resource type="Script" path="res://Quit.gd" id="3_4pb5p"]
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_h0bue"]
+
+[sub_resource type="GDScript" id="GDScript_ybhc7"]
+
+[sub_resource type="GDScript" id="GDScript_f8mq6"]
+script/source = "extends Label
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+# https://forum.godotengine.org/t/how-to-detect-label-click/14680
+func _on_gui_input(event):
+	if (event is InputEventMouseButton and event.pressed and event.button_index == 1):
+		print(\"Settings clicked\")
+"
+
+[sub_resource type="GDScript" id="GDScript_lggwj"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_h0bue")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1600.0
-offset_bottom = 900.0
+offset_right = 1152.0
+offset_bottom = 675.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 100
@@ -43,23 +63,23 @@ layout_mode = 2
 mouse_filter = 0
 theme_override_font_sizes/font_size = 100
 text = "Play"
-script = ExtResource("1_hbko0")
+script = SubResource("GDScript_ybhc7")
 
 [node name="Settings" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions"]
 layout_mode = 2
 mouse_filter = 0
 theme_override_font_sizes/font_size = 100
 text = "Settings"
-script = ExtResource("2_ridt3")
+script = SubResource("GDScript_f8mq6")
 
 [node name="Quit" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions"]
 layout_mode = 2
 mouse_filter = 0
 theme_override_font_sizes/font_size = 100
 text = "Quit"
-script = ExtResource("3_4pb5p")
+script = SubResource("GDScript_lggwj")
 
 [connection signal="gui_input" from="." to="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Play" method="_on_menu_gui_input"]
-[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Play" to="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Play" method="_on_gui_input"]
-[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Settings" to="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Settings" method="_on_gui_input"]
-[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Quit" to="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Quit" method="_on_gui_input"]
+[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Play" to="." method="_on_play_gui_input"]
+[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Settings" to="." method="_on_settings_gui_input"]
+[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptions/Quit" to="." method="_on_quit_gui_input"]

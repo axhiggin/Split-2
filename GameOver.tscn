@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://pnbeo6frxbrj"]
+
+[ext_resource type="Script" path="res://GameOver.gd" id="1_4vx3c"]
+[ext_resource type="Texture2D" uid="uid://d4c5kw3248alj" path="res://gameOver.png" id="1_foh8p"]
+
+[node name="GameOver" type="Control" groups=["menus"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4vx3c")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxContainer"]
+position = Vector2(576, 324)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_foh8p")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="TryAgain" type="Label" parent="BoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 100
+text = "Try Again"
+horizontal_alignment = 1
+
+[node name="Menu" type="Label" parent="BoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 100
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="Quit" type="Label" parent="BoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 100
+text = "Quit"
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="BoxContainer/VBoxContainer2/VBoxContainer/TryAgain" to="." method="_on_try_again_gui_input"]
+[connection signal="gui_input" from="BoxContainer/VBoxContainer2/VBoxContainer/Menu" to="." method="_on_menu_gui_input"]
+[connection signal="gui_input" from="BoxContainer/VBoxContainer2/VBoxContainer/Quit" to="." method="_on_quit_gui_input"]
