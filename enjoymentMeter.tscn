@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://g0bfor0ukfyx"]
+[gd_scene load_steps=4 format=3 uid="uid://g0bfor0ukfyx"]
 
 [ext_resource type="Texture2D" uid="uid://2mnerqxv6i1" path="res://barHorizontal_green_mid 200.png" id="1_5su16"]
+[ext_resource type="Script" path="res://enjoymentMeter.gd" id="2_voqit"]
+[ext_resource type="PackedScene" uid="uid://cqt288bnlvqmu" path="res://health2D.tscn" id="3_eetta"]
 
-[node name="Sprite3D" type="Sprite3D"]
+[node name="HealthBar3D" type="Sprite3D"]
 transform = Transform3D(-0.00366512, 0.999993, 0, -0.999993, -0.00366512, 0, 0, 0, 1, 0, 0, 0)
 billboard = 1
 texture = ExtResource("1_5su16")
+script = ExtResource("2_voqit")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(200, 26)
+
+[node name="HealthBar2D" parent="SubViewport" instance=ExtResource("3_eetta")]
+
+[node name="Timer" type="Timer" parent="."]

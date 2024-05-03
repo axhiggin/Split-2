@@ -24,17 +24,8 @@ func init_meter(_enjoyment):
 	value = enjoyment
 
 
-func _on_timer_timeout():
-	#pick out a new wantedMusic from music Array Needs to be attached
-	wantedMusic = musicArray[randi() % 6]
-	print(wantedMusic)
-	pass
 	
 func _process(delta):
-	if currMusic == wantedMusic:
-		enjoyment += 1
-	else:
-		enjoyment -= 1
 	pass
 	
 
