@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ndbawdgc46x2" path="res://crosshair.png" id="5_g6rh6"]
 [ext_resource type="Script" path="res://realroad.gd" id="5_pbmg3"]
 [ext_resource type="PackedScene" uid="uid://dy41mamkp63sd" path="res://button.tscn" id="6_xvvw2"]
-[ext_resource type="PackedScene" path="res://enjoymentMeter.tscn" id="7_hwpes"]
+[ext_resource type="PackedScene" uid="uid://c7sitddsf1pwa" path="res://enjoymentMeter.tscn" id="7_hwpes"]
 
 [node name="MainScene" type="Node3D" groups=["menus"]]
 script = ExtResource("1_mp6pc")
@@ -94,6 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -2.5, 1266.2)
 script = ExtResource("5_pbmg3")
 
 [node name="wantedTimer" type="Timer" parent="."]
+wait_time = 10.0
 autostart = true
 
 [node name="updateTimer" type="Timer" parent="."]

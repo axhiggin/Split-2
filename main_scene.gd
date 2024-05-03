@@ -36,7 +36,8 @@ func _on_update_timer_timeout():
 		if enjoyment > 0:
 			enjoyment -= 1
 
-	#$HealthBar3D.update(enjoyment, max_enjoyment)
+	$car/HealthBar3D.update_health(enjoyment, max_enjoyment)
+	
 	print(enjoyment)
 
 
