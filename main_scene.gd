@@ -4,7 +4,7 @@ var enjoyment = 50;
 var max_enjoyment = 100;
 
 var volumeLevel = 50
-var radioStation = 0
+var radioStation = 1
 
 var loseFlag = true;
 signal you_lose;
@@ -13,7 +13,7 @@ var musicArray = ["Vocaloid", "Country", "Pop", "Rock", "Kpop", "Jpop"]
 var tempArray = []
 var wantedMusic = ["Country", "Rock"]
 var unwantedMusic = "Pop"
-var currMusic = "Vocaloid"
+var currMusic = "Country"
 # Called when the node enters the scene tree for the first time.
 
 func _on_timer_timeout():
