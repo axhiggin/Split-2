@@ -84,6 +84,8 @@ func _on_change_radio_up_interacted(body):
 	if radioStation > musicArray.size() - 1:
 		radioStation = 0
 	currMusic = musicArray[radioStation]
+	$MusicPlayer.stream = load("res://Music/" + currMusic + ".mp3")
+	$MusicPlayer.play()
 	print("Current Radio station: " + musicArray[radioStation])
 
 
@@ -92,4 +94,6 @@ func _on_change_radio_down_interacted(body):
 	if radioStation < 0:
 		radioStation = musicArray.size() - 1
 	currMusic = musicArray[radioStation]
+	$MusicPlayer.stream = load("res://Music/" + currMusic + ".mp3")
+	$MusicPlayer.play()
 	print("Current Radio station: " + musicArray[radioStation])

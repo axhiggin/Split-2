@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dv4l03gwue8l5"]
+[gd_scene load_steps=12 format=3 uid="uid://dv4l03gwue8l5"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_mp6pc"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_tf43l"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://realroad.gd" id="5_pbmg3"]
 [ext_resource type="PackedScene" uid="uid://udghdkhlmspk" path="res://button.tscn" id="6_xvvw2"]
 [ext_resource type="PackedScene" uid="uid://c7sitddsf1pwa" path="res://enjoymentMeter.tscn" id="7_hwpes"]
+[ext_resource type="AudioStream" uid="uid://nsjrmwv74k75" path="res://Music/Country.mp3" id="11_nv0lq"]
 
 [node name="MainScene" type="Node3D" groups=["menus"]]
 script = ExtResource("1_mp6pc")
@@ -103,6 +104,10 @@ autostart = true
 [node name="difficultyTimer" type="Timer" parent="."]
 wait_time = 15.0
 autostart = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_nv0lq")
+autoplay = true
 
 [connection signal="interacted" from="car/Volume Up" to="." method="_on_volume_up_interacted"]
 [connection signal="interacted" from="car/Volume Down" to="." method="_on_volume_down_interacted"]
