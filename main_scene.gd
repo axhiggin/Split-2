@@ -34,7 +34,7 @@ func _on_timer_timeout():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if enjoyment == 0:
+	if enjoyment <= 0:
 		if loseFlag: 
 			loseFlag = false;
 			you_lose.emit();
