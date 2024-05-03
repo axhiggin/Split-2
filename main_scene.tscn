@@ -1,15 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv4l03gwue8l5"]
+[gd_scene load_steps=11 format=3 uid="uid://dv4l03gwue8l5"]
 
+[ext_resource type="Script" path="res://main_scene.gd" id="1_mp6pc"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_tf43l"]
 [ext_resource type="PackedScene" uid="uid://cmom1x2eospqg" path="res://car.glb" id="2_asa0f"]
 [ext_resource type="Script" path="res://car.gd" id="3_emn08"]
-[ext_resource type="PackedScene" path="res://realroad.tscn" id="4_7nbym"]
+[ext_resource type="PackedScene" uid="uid://bmla4vmn6d8vn" path="res://realroad.tscn" id="4_7nbym"]
 [ext_resource type="Script" path="res://InteractRay.gd" id="4_lphm7"]
 [ext_resource type="Texture2D" uid="uid://ndbawdgc46x2" path="res://crosshair.png" id="5_g6rh6"]
 [ext_resource type="Script" path="res://realroad.gd" id="5_pbmg3"]
 [ext_resource type="PackedScene" uid="uid://dy41mamkp63sd" path="res://button.tscn" id="6_xvvw2"]
+[ext_resource type="PackedScene" uid="uid://g0bfor0ukfyx" path="res://enjoymentMeter.tscn" id="7_hwpes"]
 
 [node name="MainScene" type="Node3D"]
+script = ExtResource("1_mp6pc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.497216, 0.867627, 0, -0.867627, 0.497216, 0, 4.71896, 0)
@@ -69,6 +72,9 @@ prompt_message = "Change radio (up)"
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.324, 0.375, 5.089)
 prompt_message = "Change radio (down)"
 
+[node name="HealthBar3D" parent="car" instance=ExtResource("7_hwpes")]
+transform = Transform3D(-0.00164576, 0.44903, 0, -0.44903, -0.00164576, 0, 0, 0, 0.449033, -1.75544, 1.34825, 6.07049)
+
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.27703, 0.960861, 0, -0.960861, -0.27703, -17.8729, 7.3531, 9.60478)
 light_energy = 30.0
@@ -87,9 +93,17 @@ script = ExtResource("5_pbmg3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -2.5, 1266.2)
 script = ExtResource("5_pbmg3")
 
+[node name="wantedTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="updateTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="interacted" from="car/Volume Up" to="car" method="_on_volume_up_interacted"]
 [connection signal="interacted" from="car/Volume Down" to="car" method="_on_volume_down_interacted"]
 [connection signal="interacted" from="car/Change Radio Up" to="car" method="_on_change_radio_up_interacted"]
 [connection signal="interacted" from="car/Change Radio Up" to="car" method="_on_volume_up_interacted"]
-[connection signal="interacted" from="car/Change Radio Down" to="car" method="_on_volume_up_interacted"]
 [connection signal="interacted" from="car/Change Radio Down" to="car" method="_on_change_radio_down_interacted"]
+[connection signal="interacted" from="car/Change Radio Down" to="car" method="_on_volume_up_interacted"]
+[connection signal="timeout" from="wantedTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="updateTimer" to="." method="_on_update_timer_timeout"]
