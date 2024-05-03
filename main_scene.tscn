@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://InteractRay.gd" id="4_lphm7"]
 [ext_resource type="Texture2D" uid="uid://ndbawdgc46x2" path="res://crosshair.png" id="5_g6rh6"]
 [ext_resource type="Script" path="res://realroad.gd" id="5_pbmg3"]
-[ext_resource type="PackedScene" uid="uid://udghdkhlmspk" path="res://button.tscn" id="6_xvvw2"]
-[ext_resource type="PackedScene" uid="uid://g0bfor0ukfyx" path="res://enjoymentMeter.tscn" id="7_hwpes"]
+[ext_resource type="PackedScene" uid="uid://dy41mamkp63sd" path="res://button.tscn" id="6_xvvw2"]
+[ext_resource type="PackedScene" path="res://enjoymentMeter.tscn" id="7_hwpes"]
 
 [node name="MainScene" type="Node3D" groups=["menus"]]
 script = ExtResource("1_mp6pc")
@@ -99,12 +99,9 @@ autostart = true
 [node name="updateTimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="you_lose" from="." to="car/Camera3D" method="_on_main_scene_you_lose"]
-[connection signal="interacted" from="car/Volume Up" to="car" method="_on_volume_up_interacted"]
-[connection signal="interacted" from="car/Volume Down" to="car" method="_on_volume_down_interacted"]
-[connection signal="interacted" from="car/Change Radio Up" to="car" method="_on_volume_up_interacted"]
-[connection signal="interacted" from="car/Change Radio Up" to="car" method="_on_change_radio_up_interacted"]
-[connection signal="interacted" from="car/Change Radio Down" to="car" method="_on_volume_up_interacted"]
-[connection signal="interacted" from="car/Change Radio Down" to="car" method="_on_change_radio_down_interacted"]
+[connection signal="interacted" from="car/Volume Up" to="." method="_on_volume_up_interacted"]
+[connection signal="interacted" from="car/Volume Down" to="." method="_on_volume_down_interacted"]
+[connection signal="interacted" from="car/Change Radio Up" to="." method="_on_change_radio_up_interacted"]
+[connection signal="interacted" from="car/Change Radio Down" to="." method="_on_change_radio_down_interacted"]
 [connection signal="timeout" from="wantedTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="updateTimer" to="." method="_on_update_timer_timeout"]

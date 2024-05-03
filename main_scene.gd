@@ -3,6 +3,9 @@ extends Node3D
 var enjoyment = 100;
 var max_enjoyment = 100;
 
+var volumeLevel = 50
+var radioStation = 0
+
 var loseFlag = true;
 signal you_lose;
 
@@ -35,3 +38,33 @@ func _on_update_timer_timeout():
 
 	#$HealthBar3D.update(enjoyment, max_enjoyment)
 	print(enjoyment)
+
+
+func _on_volume_up_interacted(body):
+	volumeLevel += 10
+	if volumeLevel > 100:
+		volumeLevel = 100
+	print("Volume: " + str(volumeLevel))
+
+
+func _on_volume_down_interacted(body):
+	volumeLevel -= 10
+	if volumeLevel < 0:
+		volumeLevel = 0
+	print("Volume: " + str(volumeLevel))
+
+
+func _on_change_radio_up_interacted(body):
+	radioStation += 1
+	if radioStation > musicArray.size() - 1:
+		radioStation = 0
+	currMusic = musicArray[radioStation]
+	print("Current Radio station: " + musicArray[radioStation])
+
+
+func _on_change_radio_down_interacted(body):
+	radioStation -= 1
+	if radioStation < 0:
+		radioStation = musicArray.size() - 1
+	currMusic = musicArray[radioStation]
+	print("Current Radio station: " + musicArray[radioStation])
