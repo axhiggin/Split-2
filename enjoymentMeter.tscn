@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://2mnerqxv6i1" path="res://barHorizontal_green_mid 200.png" id="1_5su16"]
 [ext_resource type="Script" path="res://enjoymentMeter.gd" id="2_voqit"]
-[ext_resource type="PackedScene" path="res://health2D.tscn" id="3_eetta"]
+[ext_resource type="PackedScene" uid="uid://cqt288bnlvqmu" path="res://health2D.tscn" id="3_eetta"]
 
 [node name="HealthBar3D" type="Sprite3D"]
 transform = Transform3D(-0.00366512, 0.999993, 0, -0.999993, -0.00366512, 0, 0, 0, 1, 0, 0, 0)

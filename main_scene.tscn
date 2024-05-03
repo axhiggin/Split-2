@@ -100,9 +100,14 @@ autostart = true
 [node name="updateTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="difficultyTimer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
 [connection signal="interacted" from="car/Volume Up" to="." method="_on_volume_up_interacted"]
 [connection signal="interacted" from="car/Volume Down" to="." method="_on_volume_down_interacted"]
 [connection signal="interacted" from="car/Change Radio Up" to="." method="_on_change_radio_up_interacted"]
 [connection signal="interacted" from="car/Change Radio Down" to="." method="_on_change_radio_down_interacted"]
 [connection signal="timeout" from="wantedTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="updateTimer" to="." method="_on_update_timer_timeout"]
+[connection signal="timeout" from="difficultyTimer" to="." method="_on_difficulty_timer_timeout"]

@@ -1,6 +1,6 @@
 extends Node3D
 
-var enjoyment = 100;
+var enjoyment = 50;
 var max_enjoyment = 100;
 
 var volumeLevel = 50
@@ -41,6 +41,12 @@ func _process(delta):
 			print("Game Over!")
 			get_tree().change_scene_to_file("res://GameOver.tscn")
 
+func _on_difficulty_timer_timeout():
+	$wantedTimer.wait_time *= 0.9
+	$updateTimer.wait_time *= 0.9
+	print("new wanted wait time: " + str($wantedTimer.wait_time))
+	print("new update wait time: " + str($updateTimer.wait_time))
+	
 
 func _on_update_timer_timeout():
 	if currMusic in wantedMusic:
