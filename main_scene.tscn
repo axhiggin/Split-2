@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_tf43l"]
 [ext_resource type="PackedScene" uid="uid://cmom1x2eospqg" path="res://car.glb" id="2_asa0f"]
 [ext_resource type="Script" path="res://car.gd" id="3_emn08"]
-[ext_resource type="PackedScene" path="res://realroad.tscn" id="4_7nbym"]
+[ext_resource type="PackedScene" uid="uid://bmla4vmn6d8vn" path="res://realroad.tscn" id="4_7nbym"]
 [ext_resource type="Script" path="res://InteractRay.gd" id="4_lphm7"]
 [ext_resource type="Texture2D" uid="uid://ndbawdgc46x2" path="res://crosshair.png" id="5_g6rh6"]
 [ext_resource type="Script" path="res://realroad.gd" id="5_pbmg3"]
-[ext_resource type="PackedScene" uid="uid://dy41mamkp63sd" path="res://button.tscn" id="6_xvvw2"]
+[ext_resource type="PackedScene" uid="uid://udghdkhlmspk" path="res://button.tscn" id="6_xvvw2"]
 [ext_resource type="PackedScene" uid="uid://c7sitddsf1pwa" path="res://enjoymentMeter.tscn" id="7_hwpes"]
 
 [node name="MainScene" type="Node3D" groups=["menus"]]

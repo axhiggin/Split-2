@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_kyqie"]
 [ext_resource type="Script" path="res://InteractRay.gd" id="2_gwu8f"]
-[ext_resource type="PackedScene" uid="uid://dy41mamkp63sd" path="res://button.tscn" id="3_30bjv"]
+[ext_resource type="PackedScene" uid="uid://udghdkhlmspk" path="res://button.tscn" id="3_30bjv"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_yycqj"]
 

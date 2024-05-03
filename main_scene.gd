@@ -10,14 +10,27 @@ var loseFlag = true;
 signal you_lose;
 
 var musicArray = ["Vocaloid", "Country", "Pop", "Rock", "Kpop", "Jpop"]
-var wantedMusic = "Country"
+var tempArray = []
+var wantedMusic = ["Country", "Rock"]
+var unwantedMusic = "Pop"
 var currMusic = "Vocaloid"
 # Called when the node enters the scene tree for the first time.
 
 func _on_timer_timeout():
 	#pick out a new wantedMusic from music Array Needs to be attached
-	wantedMusic = musicArray[randi() % 6]
+	var rand = randi() % 6
+	wantedMusic.clear()
+	tempArray = musicArray.duplicate()
+	wantedMusic.append(tempArray[rand])
+	tempArray.pop_at(rand)
+	rand = randi() % 5
+	wantedMusic.append(tempArray[rand])
+	tempArray.pop_at(rand)
+	rand = randi() % 4
+	unwantedMusic = tempArray[rand]
+	
 	print(wantedMusic)
+	print(unwantedMusic)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,8 +43,13 @@ func _process(delta):
 
 
 func _on_update_timer_timeout():
-	if currMusic == wantedMusic:
-		enjoyment += 1
+	if currMusic in wantedMusic:
+		if enjoyment < max_enjoyment:
+			enjoyment += 1
+		else:
+			pass
+	elif currMusic == unwantedMusic:
+		enjoyment -= 2
 	else:
 		if enjoyment > 0:
 			enjoyment -= 1
