@@ -20,5 +20,6 @@ func _on_menu_gui_input(event):
 		get_tree().change_scene_to_file("res://MainMenu.tscn")
 
 func _on_quit_gui_input(event):
-	print("Quit Clicked")
-	get_tree().quit()
+	if (event is InputEventMouseButton and event.pressed and event.button_index == 1):
+		print("Quit Clicked")
+		get_tree().quit()

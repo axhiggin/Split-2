@@ -13,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_4vx3c")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 alignment = 1

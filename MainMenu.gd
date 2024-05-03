@@ -19,7 +19,6 @@ func _on_settings_gui_input(event):
 		print("Settings clicked")
 
 func _on_quit_gui_input(event):
-	
 	if (event is InputEventMouseButton and event.pressed and event.button_index == 1):
 		print("Quit clicked")
 		get_tree().quit()
